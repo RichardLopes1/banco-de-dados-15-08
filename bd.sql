@@ -1,5 +1,8 @@
 create database fiap;
 
+USE FIAP;
+
+ -- CRIAR TABELAS
 create table t_turma(
 	id_turma int primary key,
     sg_turma varchar(6),
@@ -14,6 +17,10 @@ create table t_aluno(
     rm_aluno int not null,
     dt_nascimento date,
     st_aluno boolean,
-    renda double
-    id_turma int references t_turma(id_turma) -- chave estrangeira
+    renda double,
+    fk_id_turma int,
+    foreign key (fk_id_turma) references t_turma(id_turma) -- chave estrangeira
 );
+
+ -- APAGAR TABELAS
+ drop table t_aluno;
